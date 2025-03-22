@@ -1,0 +1,32 @@
+name: Reddit Matchmaker
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # Every 30 minutes (48 runs/day)
+  workflow_dispatch:         # Allow manual triggers
+
+jobs:
+  process-sheet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5       # Prevent long-running jobs
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install -r src/requirements.txt
+
+    - name: Run Script
+      env:
+        REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+        REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+        REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+        GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDS_BASE64 }}
+      run: python src/main.py
