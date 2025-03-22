@@ -1,9 +1,9 @@
 name: Reddit Matchmaker
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"  # Every 30 minutes (48 runs/day)
-  workflow_dispatch:
+  # schedule:
+  #   - cron: "*/30 * * * *"  # Every 30 minutes (48 runs/day)
+  # workflow_dispatch:
 
 jobs:
   process:
