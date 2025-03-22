@@ -21,7 +21,7 @@ REDDIT_CREDS = {
 }
 
 SHEET_NAME = "Reddit_Nepal _Matchmaker-2-0"
-MIN_ACCOUNT_AGE_DAYS = 90
+MIN_ACCOUNT_AGE_DAYS = 30
 MAX_DM_RETRIES = 3
 
 COLUMN_MAP = {
@@ -34,7 +34,7 @@ COLUMN_MAP = {
 
 HUMOR = {
     "dm_messages": [
-        "Your code survived 3 rounds of load shedding ⚡",
+        "Your code survived 1 rounds of load shedding ⚡",
         "Approved by 9/10 street cows of Kathmandu 🐄",
         "Contains pure momo energy - handle with care! 🥟"
     ],
